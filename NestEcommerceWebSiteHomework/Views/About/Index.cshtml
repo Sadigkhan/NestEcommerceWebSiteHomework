@@ -1,0 +1,247 @@
+﻿@model AboutVM
+
+
+<section id="welcome">
+    <div class="about-container">
+        <div class="row welcome">
+            <div class="box">
+                <div class="left">
+                    <img src="~/images/about/@Model.About.Image" alt="">
+                </div>B
+                <div class="right">
+                    <h2>@Model.About.Title</h2>
+                    <p class="text">
+                        @Html.Raw(Model.About.Content)
+                    </p>
+                    <div class="myslider">
+                        @foreach (AboutImage aboutImage in Model.About.AboutImages)
+                        {
+                            <img src="~/images/about/@aboutImage.Image" alt="">
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="provide">
+    <div class="about-container">
+        <div class="about-header-text">
+            <h2>What We Provide?</h2>
+        </div>
+        <div class="row provides">
+            @foreach (Provide provides in Model.Provides)
+            {
+                <div class="col-lg-4 col-md-6 provide">
+                    <div class="box">
+                        <img src="~/images/about/provide/@provides.image" alt="">
+                        <h4>@provides.Title</h4>
+                        <p>@Html.Raw(provides.Context)</p>
+                        <a href="~/#">Read more</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<section id="performance">
+    <div class="about-container">
+        <div class="row performance">
+            <div class="col-lg-7">
+                <img src="~/images/about/about-5.png" class="small" alt="">
+            </div>
+            <div class="col-lg-5">
+                <div class="box">
+                    <h4>Our performance</h4>
+                    <h1>@Model.Performance.Title</h1>
+                    <p>
+                        @Model.Performance.Context
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row history">
+            @foreach (History history in Model.Histories)
+            {
+                <div class="col-lg-4 box">
+                    <h3>@history.Title</h3>
+                    <p>@history.Context</p>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<section id="imagenum">
+    <div class="container-fluid">
+        <div class="row imagenum">
+            <div class="col-lg-1-5">
+                <div class="box">
+                    <h1><span class="value" akhi="12">0</span>+</h1>
+                    <h4>Glorious years</h4>
+                </div>
+            </div>
+            <div class="col-lg-1-5">
+                <div class="box">
+                    <h1><span class="value" akhi="36">0</span>+</h1>
+                    <h4>Happy clients</h4>
+                </div>
+            </div>
+            <div class="col-lg-1-5">
+                <div class="box">
+                    <h1><span class="value" akhi="57">0</span>+</h1>
+                    <h4>Projects complete</h4>
+                </div>
+            </div>
+            <div class="col-lg-1-5">
+                <div class="box">
+                    <h1><span class="value" akhi="24">0</span>+</h1>
+                    <h4>Team advisor</h4>
+                </div>
+            </div>
+            <div class="col-lg-1-5">
+                <div class="box">
+                    <h1><span class="value" akhi="26">0</span>+</h1>
+                    <h4>Products Sale</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="team">
+    <div class="about-header-text">
+        <h2>Our-team</h2>
+    </div>
+    <div class="about-container">
+        <div class="row team">
+            <div class="col-lg-4 left">
+                <h6>Our Team</h6>
+                <h1>@Model.TeamInfo.Title</h1>
+                <p>
+                   @Html.Raw(Model.TeamInfo.Context)
+                </p>
+                <a href="~/#">View All Members</a>
+            </div>
+            <div class="col-lg-8 right">
+                @foreach (TeamMember teamMember in Model.TeamMembers)
+                {
+                <div class="box">
+                    <img src="~/images/about/@teamMember.Image " alt="">
+                    <div class="text">
+                        <h6>@teamMember.FullName</h6>
+                        <span>@teamMember.Position</span>
+                        <div class="icons">
+                            <a href="~/#">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="~/#">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="~/#">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="~/#">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                }
+             
+            </div>
+        </div>
+    </div>
+</section>
+<section id="need">
+    <div class="container-fluid">
+        <div class="row need">
+            <div class="box">
+                <div class="text">
+                    <h2 class="mb-20">
+                        Stay home &amp; get your daily <br>
+                        needs from our shop
+                    </h2>
+                    <p class="mb-45">Start You'r Daily Shopping with <span class="text-brand">Nest Mart</span></p>
+                    <form class="myform" action="">
+                        <input type="email" placeholder="Your emaill address">
+                        <button class="btn" type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <img src="~/images/about/banner-13.png" alt="">
+            </div>
+        </div>
+        <div class="row featured">
+            <div class="col-lg-1-5">
+                <div class="box">
+                    <div class="left">
+                        <img src="~/images/about/provide/icon-1.svg" alt="">
+                    </div>
+                    <div class="right">
+                        <h5>Best prices & offers</h5>
+                        <span>Orders $50 or more</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1-5">
+                <div class="box">
+                    <div class="left">
+                        <img src="~/images/about/provide/icon-2.svg" alt="">
+                    </div>
+                    <div class="right">
+                        <h5>Free delivery</h5>
+                        <span>24/7 amazing services</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1-5">
+                <div class="box">
+                    <div class="left">
+                        <img src="~/images/about/provide/icon-3.svg" alt="">
+                    </div>
+                    <div class="right">
+                        <h5>Great daily deal</h5>
+                        <span>When you sign up</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1-5">
+                <div class="box">
+                    <div class="left">
+                        <img src="~/images/about/provide/icon-4.svg" alt="">
+                    </div>
+                    <div class="right">
+                        <h5>Wide assortment</h5>
+                        <span>Mega Discounts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1-5">
+                <div class="box">
+                    <div class="left">
+                        <img src="~/images/about/provide/icon-5.svg" alt="">
+                    </div>
+                    <div class="right">
+                        <h5>Easy returns</h5>
+                        <span>Within 30 days</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1-5 last-featured">
+                <div class="box">
+                    <div class="left">
+                        <img src="~/images/about/provide/icon-6.svg" alt="">
+                    </div>
+                    <div class="right">
+                        <h5>Safe Delivery</h5>
+                        <span>Within 30 days</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section about{ 
+    <script type="text/javascript" src="~/js/about.js"></script>
+}

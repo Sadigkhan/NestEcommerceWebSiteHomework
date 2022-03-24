@@ -1,0 +1,198 @@
+﻿
+@model HomeVM
+<section id="looking">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="text">
+                <h2>What are you looking for?</h2>
+                <form action="" id="lookform">
+                    <img src="~/images/icon-search.png" alt="">
+                    <input type="text" placeholder="Your emaill address">
+                    <button type="submit">Subscribe</button>
+                </form>
+                <ul>
+                    <li>
+                        <a href="~/#">Cake</a>
+                    </li>
+                    <li>
+                        <a href="~/#">Coffes</a>
+                    </li>
+                    <li>
+                        <a href="~/#">Pet Foods</a>
+                    </li>
+                    <li>
+                        <a href="~/#">Vegetables</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="trending">
+    <div class="container-fluid">
+        <div class="header-text">
+            <h2>Trending items</h2>
+        </div>
+        <div class="row trending">
+            @foreach (Trending trending in Model.Trendings)
+            {
+                <div class="col-lg-1-5 trend-box">
+                    <div data-id="1" class="box">
+                        <span class="spn hot">Hot</span>
+                        <div class="top">
+                            <div class="overlay">
+                                <a href="~/#">
+                                    <i class="fa-solid fa-heart"></i>
+                                </a>
+                                <a href="~/#">
+                                    <i class="fa-solid fa-shuffle"></i>
+                                </a>
+                                <a href="~/#">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+                            </div>
+                            <a asp-controller="product" asp-action="index" class="GoToProduct">
+                                <img src="~/images/trending/@trending.Image1" class="first" alt="">
+                                <img src="~/images/trending/@trending.Image2" class="second" alt="">
+                            </a>
+                        </div>
+                        <div class="bottom">
+                            <div class="btop">
+                                <a href="~/#" class="cat">Snack</a>
+                                <a href="~/#" class="name">@trending.Name</a>
+                                <div class="icons">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                    <span>(4.0)</span>
+                                </div>
+                                <span class="who">By<a href="~/#">NestFood</a></span>
+                            </div>
+                            <div class="bbottom">
+                                <div class="prices">
+                                    <span>$ <span class="price-value"> @trending.NewPrice</span></span>
+                                    <del>$ @trending.OldPrice</del>
+                                </div>
+                                <a href="~/card.html">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    <span class="add-prod-basket">Add</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+<section id="deals">
+    <div class="header-text">
+        <h2>Deals of the day</h2>
+    </div>
+    <div class="container-fluid">
+        <div class="row deals">
+            @foreach (Deal deals in Model.Deals)
+            {
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 deal-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
+                    <div class="box">
+                        <div class="top">
+                            <img src="~/images/deals/@deals.Image" alt="">
+                        </div>
+                        <div class="bottom">
+                            <div class="time" data-countdown="2025/03/25 00:00:00">
+                                <div class="day">
+                                    <span>@deals.DayNum</span> <br>
+                                    Days
+                                </div>
+                                <div class="hour">
+                                    <span>@deals.HourNum</span> <br>
+                                    Hours
+                                </div>
+                                <div class="minute">
+                                    <span>@deals.MinNUm</span> <br>
+                                    Mins
+                                </div>
+                                <div class="second">
+                                    <span>@deals.SecNum</span> <br>
+                                    Sec
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="btop">
+                                    <a href="~/#" class="name">@deals.Name</a>
+                                    <div class="icons">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star-half-stroke"></i>
+                                        <span>(4.0)</span>
+                                    </div>
+                                    <span class="who">By<a href="~/#">NestFood</a></span>
+                                </div>
+                                <div class="bbottom">
+                                    <div class="prices">
+                                        <span>$@deals.NewPrice</span>
+                                        <del>$@deals.OldPrice</del>
+                                    </div>
+                                    <a href="~/card.html">
+                                        <i class="fa-solid fa-cart-plus"></i>
+                                        <span class="add-prod-basket">Add</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+<section id="products">
+    <div class="container-fluid">
+        <div class="row all">
+            @foreach (TopSelling topSelling in Model.TopSellings)
+            {
+                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 head " data-aos="fade-up" data-aos-delay="100">
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <h4>@topSelling.Name</h4>
+                    </div>
+                    <div class="row products">
+                        @foreach (var item in topSelling.TopSellingImages)
+                        {
+                            <div class="box">
+                                <a class="left">
+
+                                    <img src="~/images/products/@item.Image" alt="">
+                                </a>
+                                <div class="right">
+                                    <a href="~/#" class="name">@item.Title</a>
+                                    <div class="icons">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star-half-stroke"></i>
+                                        <span>(4.0)</span>
+                                    </div>
+                                    <div class="prices">
+                                        <span>$@item.NewPrice</span>
+                                        <del>$@item.OldPrice</del>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
